@@ -1,84 +1,204 @@
 <!DOCTYPE html>
-  <html>
-  <head>
-    <title>So You Want To Be A Seattle AirBNB Mogul.</title>
-  </head>
-  <body>
-    <font font-family='arial' fontsize='12'>  
-    <img src="images/image1.jpg" alt="Header Image">
-    <div>
-      <h1>So You Want To Be A Seattle AirBNB Mogul.</h1>
-      <p>Maybe you've taken a vacation and used a service like AirBNB or VRBO to book your rental.
-      You enjoyed your experience and decided, that doesn't look so hard. You live in the greater
-      Seattle Area and maybe have a property or some money. You want to be successful and by that
-      you mean have a well priced option or options and receive high ratings. Where should you
-      start, what sorts of units should you be looking at. What characteristics of those units
-      bring in top dollar?</p>
-      <br>
-      <p>Well, here's a place to start. I analyzed a tranche of data concerning AirBNB and tried to
-      figure out some answers to those questions. The questions I looked at were:</p>
-      <br>
-        1. Are there some features that correlate to higher ratings or satisfaction?
-        2. Is there a pattern to be found in the types of hosts?
-        3. Are there certain features that translate to better pricing?
-        Bonus Question: Are there better zip codes for prices?
-      <br>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./favicon.ico" />
+  <style>
+      body{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    article{
+        margin-top: 5em;
+    }
+    .side-nav{
+        color: black;
+        border-radius: 50%;
+        text-decoration: none;
+        border: none;
+        width: 3em;
+        height: 3em;
+        padding: 10px;
+        background-color: white;
+        transition: 0.5s;
+        margin-bottom: 10px;
+    }
+    .side-nav-div{
+        margin-top: 7em;
+        text-align: center;
+    }
+    .side-nav:hover{
+        color: white;
+        background-color: black;
+    }
+
+    html {
+        font-size: 1.3rem;
+      }
+      blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+  }
+  blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  blockquote p {
+    display: inline;
+  }
+
+@media (max-width:1000px) {
+    .row{
+        flex-direction: column;
+    }
+    .col-1{
+        width: 100%;
+        margin-top: 10px;
+        float: left;
+    }
+    .col-11{
+        margin-top: 4px !important;
+        width: 100%;
+    }
+}
+
+  </style>
+
+</head>
+<body class='container'>
+    <div class='row'>
+    <div class='col-1 side-nav-div'>
+        <button onclick="window.location.replace('https://example.com')" class='side-nav'><span class="fa fa-home"></span></button>
+        <button onclick="increaseFontSize()" class='side-nav'>A+</button>
+        <button onclick="decreaseFontSize()" class='side-nav'>A-</button>
     </div>
-    Let's investigate each one in turn.
-    <br>
-    <img src="images/heatmaps.png" alt="Header Image">
-    <br>
-    <div>
-      <h2>Are there some features that correlate to higher ratings or satisfaction?</h2>
-      <p>I began, after formatting and cleansing the data, by looking at what sort of features a
-      property might have that would correlate to higher ratings or satification. Heatmaps didn't
-      really tell me too much. There were some correlations with the rapidness of response and the
-      number of reviews per month. But nothing that looked too strong. I then ran the data through
-      a series of algorithms to see if the computer was smarter than my eyes (quick aside, it is).
-      What I found was interesting. Price and rating directly correlated in the algorithms. Other
-      major determinents were host response rate and the number of listings a host had. Finally,
-        number of bedrooms, bathrooms and a property type of house all were strong predictors.</p>
+    <article class='col-11 mt-5'>
+      <img src="images/image1.jpg" alt="Header Image">
+      <div>
+        <h1>So You Want To Be A Seattle AirBNB Mogul.</h1>
+        <p>Maybe you've taken a vacation and used a service like AirBNB or VRBO to book your rental.
+        You enjoyed your experience and decided, that doesn't look so hard. You live in the greater
+        Seattle Area and maybe have a property or some money. You want to be successful and by that
+        you mean have a well priced option or options and receive high ratings. Where should you
+        start, what sorts of units should you be looking at. What characteristics of those units
+        bring in top dollar?</p>
+        <br>
+        <p>Well, here's a place to start. I analyzed a tranche of data concerning AirBNB and tried to
+        figure out some answers to those questions. The questions I looked at were:</p>
+        <br>
+          1. Are there some features that correlate to higher ratings or satisfaction?
+          2. Is there a pattern to be found in the types of hosts?
+          3. Are there certain features that translate to better pricing?
+          Bonus Question: Are there better zip codes for prices?
+        <br>
+      </div>
+      Let's investigate each one in turn.
       <br>
-    </div>
-    <img src="images/determinants.png" alt="Header Image">
-    <br>
-    <div>
-      <h2>Is there a pattern to be found in the types of hosts?</h2>
+      <img src="images/heatmaps.png" alt="Header Image">
       <br>
-      <p>Next I looked at are there some types of hosts that got higher ratings or prices. As noted
-      above, rapidness of response (within a few hours was the strongest), having a larger number of
-      listings seemed affect the higher ratings.</p>
+      <div>
+        <h2>Are there some features that correlate to higher ratings or satisfaction?</h2>
+        <p>I began, after formatting and cleansing the data, by looking at what sort of features a
+        property might have that would correlate to higher ratings or satification. Heatmaps didn't
+        really tell me too much. There were some correlations with the rapidness of response and the
+        number of reviews per month. But nothing that looked too strong. I then ran the data through
+        a series of algorithms to see if the computer was smarter than my eyes (quick aside, it is).
+        What I found was interesting. Price and rating directly correlated in the algorithms. Other
+        major determinents were host response rate and the number of listings a host had. Finally,
+          number of bedrooms, bathrooms and a property type of house all were strong predictors.</p>
+        <br>
+      </div>
+      <img src="images/determinants.png" alt="Header Image">
       <br>
-    </div>
-    <div>
-      <h2>Are there certain features that translate to better pricing?</h2>
+      <div>
+        <h2>Is there a pattern to be found in the types of hosts?</h2>
+        <br>
+        <p>Next I looked at are there some types of hosts that got higher ratings or prices. As noted
+        above, rapidness of response (within a few hours was the strongest), having a larger number of
+        listings seemed affect the higher ratings.</p>
+        <br>
+      </div>
+      <div>
+        <h2>Are there certain features that translate to better pricing?</h2>
+        <br>
+        <p>Finally, I took the same algorithms above and turned the question over to pricing to see if
+        there were some determinant items there. As noted, high ratings for the host correlated with
+        price. Some negative factors were found affecting the price for condominiums and tents. But
+        otherwise I saw similar outcomes with host responses having a factor in predicting higher
+        prices, as well as number of bathrooms, bedrooms, and a property type of house.</p>
+        <br>
+      </div>
+      <img src="images/pricebyzip.png" alt="Header Image">
       <br>
-      <p>Finally, I took the same algorithms above and turned the question over to pricing to see if
-      there were some determinant items there. As noted, high ratings for the host correlated with
-      price. Some negative factors were found affecting the price for condominiums and tents. But
-      otherwise I saw similar outcomes with host responses having a factor in predicting higher
-      prices, as well as number of bathrooms, bedrooms, and a property type of house.</p>
-      <br>
-    </div>
-    <img src="images/pricebyzip.png" alt="Header Image">
-    <br>
-    <div>
-      <h2>Bonus Question: Are there better zip codes for prices?</h2>
-      Just for grins, I took a look at the data from another angle. Which zipcodes would provide the
-      best pricing options. Median-wise it looked like 98199, the Magnolia and Magnolia Village area
-      was as strong, contender with a high median for nightly pricing. Two other strong neighborhoods
-      where 98116, West Seattle and 98109, Westlake/Cascade. These had strong median prices for nightly
-      rentals.
-      <br>
-    </div>
-    <div>  
-      <h2>So what if you still want to be an AirBNB mogul?</h2>
-      I'm not sure pricing high and hoping for good ratings a solid solution. But, renting a whole
-      house type property with numerous rooms and bathrooms would be a good start. Being a
-      responsive host who responds in less than a few hours will keep your ratings up. And finally,
-      reinvest your income in procuring multiple properties, as that might correlate to higher
-      ratings and prices.
-    </div>
-  </font>
-  </body>
+      <div>
+        <h2>Bonus Question: Are there better zip codes for prices?</h2>
+        Just for grins, I took a look at the data from another angle. Which zipcodes would provide the
+        best pricing options. Median-wise it looked like 98199, the Magnolia and Magnolia Village area
+        was as strong, contender with a high median for nightly pricing. Two other strong neighborhoods
+        where 98116, West Seattle and 98109, Westlake/Cascade. These had strong median prices for nightly
+        rentals.
+        <br>
+      </div>
+      <div>
+        <h2>So what if you still want to be an AirBNB mogul?</h2>
+        I'm not sure pricing high and hoping for good ratings a solid solution. But, renting a whole
+        house type property with numerous rooms and bathrooms would be a good start. Being a
+        responsive host who responds in less than a few hours will keep your ratings up. And finally,
+        reinvest your income in procuring multiple properties, as that might correlate to higher
+        ratings and prices.
+      </div>
+
+    </article>
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+    function increaseFontSize(){
+
+        let html = document.getElementsByTagName('html')[0];
+        let currentFont = window.getComputedStyle(html, null).getPropertyValue("font-size");
+        if(currentFont == '35px'){
+            return false;
+        }
+
+        html.style.fontSize = parseInt(currentFont) + parseInt(3) + "px";
+    }
+    function decreaseFontSize(){
+
+        let html = document.getElementsByTagName('html')[0];
+        let currentFont = window.getComputedStyle(html, null).getPropertyValue("font-size");
+        if(currentFont == '14px'){
+            return false;
+        }
+        html.style.fontSize = parseInt(currentFont) - parseInt(3) + "px";
+    }
+
+  function addDarkmodeWidget() {
+    const options = {
+        time: '0.5s', // default: '0.3s'
+        mixColor: '#fff', // default: '#fff'
+        backgroundColor: '#fff',  // default: '#fff'
+        buttonColorDark: '#100f2c',  // default: '#100f2c'
+        buttonColorLight: '#fff', // default: '#fff'
+        saveInCookies: false, // default: true,
+        label: '🌙', // default: ''
+        autoMatchOsTheme: true // default: true
+        }
+
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
+
+</body>
 </html>
