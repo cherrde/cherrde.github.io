@@ -149,9 +149,11 @@
         and income histograms seemed very simliar. There had to be a better way to get at the characterstics that determined these successful offers. And of course,
         there is, classifying models.</p>
       <h2>Data Preprocessing</h2>
-        <p>Some final feature engineering and data preprocessing was conducted. First we converted several numerical values (income, became_member_on) to
-        categorical values. This would allow us to include them in our classifier engine later more easily. I also removed null values (since our classifier engines
-        can't use them). I then used a MinMaxScaler to scale numeric variables we didn't want to turn into categories (time, difficulty, duration, age and reward)</p>
+        <p>Some final feature engineering and data preprocessing was conducted. First we dropped unnecessary columns: person, person_id, offer_id, and offer_name.
+        Then I broke the data into our offer (our target set) and feature sets. Next, we converted several numerical values (income, became_member_on) to categorical
+        values using pandas getdummies functionality. This would allow us to include them in our classifier engine later more easily. I also removed null values
+        (since our classifier engines can't use them). I then used a MinMaxScaler to scale numeric variables we didn't want to turn into categories (time, difficulty,
+        duration, age and reward)</p>
       <h2>Metrics: Next Steps, modeling and determinant features</h2>
          <p>The first step was to get information about a basic Naive predictor and calculate the Accuracy and F1 Score for comparison to models I build later.
          Why use Accuracy and F1 Score? Accuracy, of course is good since it high accuracy means it is easy to pinpoint predictions that will be successful.
@@ -162,14 +164,20 @@
         <p>The data we have is categorical. Using the following link (https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) I reviewed which
         model might make the most sense. I decided on the following three: Support Vector Machine, K-Nearest Neighbor and the Bagging Classifier method. I investigated
         and experimented with ADA Boost, Decision Trees and Random Forest Classifiers as well. We'll train on three different amounts of the data (1%, 10% and all) we'll
-        compare accuracy and f-scores to see which models seem the best for us.</p>
+        compare accuracy and f-scores to see which models seem the best for us. Hyperparameter settings were left at their defaults. For the SVC Classifier we used the default
+        setting of degree 3 and random_state of 0 for reproducible output. For KNeighbors we stuck with 5 nieghbors, auto select on the algorithm, leaf size of 30
+        random_state of 0, again for reproducibility, and uniform weights. For the Bagging Classifier this included 10 base estimators, random_state of 0 to ensure
+        each run was the same.</p>
       <h3>Refinement and Justification: Model Results</h3>
         <p>I modeled a few different classifiers starting with a Naive Predictor. The Accuracy was about 45% and F1 Score 0.51 (middle of the road, not very good). I then
         tested the models discussed above to find the a good solid model that would predict at a high level. The SVC model had an Accuracy in the testing set between 77%
         and 80% and an F1 Score range from 0.75 to 0.76. Pretty solid, much better than the Naive predictor. The KNeighbors ranged from 72% to 77%, not as good with
         F1 Scores from .70 to .75. Finally the Bagging Classifier ranged from 75% to 80% with F1 Scores from .74 to .79. The Bagging Classifier was marginally better
         than the SVC, but the final determinant was the speed. The Bagging Classifier was much, much faster taking significantly less time to deliver results than the
-        SVC with all the data used in the Training and Testing sets.</p>
+        SVC with all the data used in the Training and Testing sets. Hyperparameters were left at defaults since these worked well enough to reach satisfactory results.
+        With the Bagging Classifier I did explore changing the n_estimators to 5 and 20 with limited effect. Then looking at max_features of 5 and 15 and those produced
+        both less accruate and lower f1 score results. I tried bootstrapping the features set to True, this did slightly improve the accuracy and f1 score. So future
+        investigations might explore that.</p>
         <br>
           <img src="images/model_analysis.png" alt="Header Image">
         </br>
@@ -190,7 +198,8 @@
         able to determine our predictive or determinant features (age, time, reward, difficulty, duration) and some additional (like newer membership and income level of 60k).</p>
       <h2>Improvements</h2>
         <p>This isn't the end, though. We could improve the models by gathering more data and rerunning. We could use the SVC with a more powerful system (potenially pushing it off
-          to a high end graphics engine to improve performance). We could look at our modeling from a different perspective and create a recommendation engine.</p>
+        to a high end graphics engine to improve performance). We could delve into changing the various hyperparameters of our models to increase our accuracy and f1 score. We could
+        look at our modeling from a different perspective and create a recommendation engine.</p>
         <br></br>
     </article>
 
